@@ -5,16 +5,92 @@
   <meta charset="UTF-8">
   <style type="text/css">
   html,
-  body {
+  body,
+  #scroller {
     height: 100%;
   }
   </style>
 </head>
 <body>
+<div id='scroller'>
 <div id='container'>
-
-
+  <p>
+  test 
+  </p>
+  <div id='img'>
+  </div>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+</div>
 </div>
 <script type="text/javascript" src='index.js'></script>
+<script type="text/javascript">
+  // scrollbear.start('#content')
+  setTimeout(function () {
+    document.querySelector('#img').innerHTML = 
+  '<img src="https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0NS04YTJiLTdkNmU3NjZiNjI3Mg.png">'
+  }, 1000)
+</script>
+<script type="text/javascript">
+  scrollbear.start('#container')
+</script>
 </body>
 </html>
