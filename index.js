@@ -10,14 +10,14 @@ var scrollbear = (function() {
     var scroll
     requestAnimationFrame(function frame(time) {
       var newHeight = container.offsetHeight
-      scroll = getScroll()
+      scroll = getScroll(scroller)
       // container height change, means there's a image loaded
       if (isHeightChange(oldHeight, newHeight) &&
         // get loaded image, then determine if it's above the viewport 
-        getLoadedImages(unloadImages)[0].offsetTop < window.scrollY) {
+        getLoadedImages(unloadImages)[0].offsetTop < getScroll(scroller)) {
         unloadImages = markLoadedImages(unloadImages)
         var offset = newHeight - oldHeight
-        returnScroll(window, scroll + offset)
+        returnScroll(scroller, scroll + offset)
       }
       oldHeight = newHeight
       requestAnimationFrame(frame)
@@ -28,11 +28,11 @@ var scrollbear = (function() {
     return oldHeight !== newHeight
   }
   // TODO: take a look of jQuery
-  function getScroll() {
-    return window.scrollY
+  function getScroll(target) {
+    return target.scrollTop || window.scrollY
   }
   function returnScroll(target, pos) {
-    target.scrollTo(0, pos)
+    target.scrollTop? target.scrollTop = pos: window.scrollTo(0, pos)
   }
   function markLoadedImages(images) {
     return images.map(img => {
