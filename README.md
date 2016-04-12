@@ -5,6 +5,11 @@ Scrollbear is a tool that maintains scroll position when images loaded. Scrollbe
 
 #### API
 
+##### Scrollbear.start(target [, changedItems])
+
+The target should be the one whose has the complete height, and the parent need to have the scroll bar.
+Start to maintain the scroll bar for the target.
+
 #### Development
 
 #### License

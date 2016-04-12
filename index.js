@@ -1,10 +1,10 @@
-var scrollbear = (function() {
+var Scrollbear = (function() {
   
-  function start(target) {
+  function start(target, changable = container.querySelectorAll('img')) {
     var container = document.querySelector(target)
     var scroller = container.parentNode
-    var unloadImages = Array.from(container.querySelectorAll('div'))
-    unloadImages.forEach(img => img.caculatedHeight = 0)
+    var unloadItem = Array.from(changable)
+    unloadItem.forEach(img => img.caculatedHeight = 0)
 
     var oldHeight = container.offsetHeight
     var scroll
@@ -14,8 +14,8 @@ var scrollbear = (function() {
       // container height change, means there's a image loaded
       if (isHeightChange(oldHeight, newHeight) &&
         // get loaded image, then determine if it's above the viewport 
-        getLoadedImages(unloadImages)[0].offsetTop < getScroll(scroller)) {
-        unloadImages = markLoadedImages(unloadImages)
+        getLoadedImages(unloadItem)[0].offsetTop < getScroll(scroller)) {
+        unloadItem = markLoadedImages(unloadItem)
         var offset = newHeight - oldHeight
         returnScroll(scroller, scroll + offset)
       }
@@ -32,7 +32,11 @@ var scrollbear = (function() {
     return target.scrollTop || window.scrollY
   }
   function returnScroll(target, pos) {
-    target.scrollTop? target.scrollTop = pos: window.scrollTo(0, pos)
+    // body will not scroll
+    if (typeof target.scrollTop === 'undefined' || target === document.body)
+      window.scrollTo(0, pos)
+    else
+      target.scrollTop = pos
   }
   function markLoadedImages(images) {
     return images.map(img => {

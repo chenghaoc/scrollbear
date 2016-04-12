@@ -16,12 +16,11 @@
   </style>
 </head>
 <body>
-<div id='scroller'>
 <div id='container'>
   <p>
   test 
   </p>
-  <div id='img'>
+  <div class='lazy'>
   </div>
   <p>
   test 
@@ -89,12 +88,12 @@
 <script type="text/javascript">
   // scrollbear.start('#content')
   setTimeout(function () {
-    document.querySelector('#img').innerHTML = 
+    document.querySelector('.lazy').innerHTML = 
   '<img src="https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0NS04YTJiLTdkNmU3NjZiNjI3Mg.png">'
   }, 1000)
 </script>
 <script type="text/javascript">
-  scrollbear.start('#container')
+  Scrollbear.start('#container', document.querySelectorAll('.lazy'))
 </script>
 </body>
 </html>
