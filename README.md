@@ -7,9 +7,7 @@ Scrollbear is a tool that maintains scroll position when images loaded. Scrollbe
 
 ##### Scrollbear.start(target [, changedItems])
 
-The target should be the one whose has the complete height, and the parent need to have the scroll bar.
-Start to maintain the scroll bar for the target.
-
+The target should be the one contains your long data (such as article content). Notice that the direct parent node of this target should be the node which has scroll bar. If scroll bar is on the document node, then
 #### Development
 
 #### License
