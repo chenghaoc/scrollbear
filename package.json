@@ -1,0 +1,22 @@
+{
+  "name": "scrollbear",
+  "version": "0.0.1",
+  "description": "Scrollbear is a tool that maintains the container scroll position when images loaded",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/changbenny/scrollbear.git"
+  },
+  "keywords": [
+    "scroll"
+  ],
+  "author": "changbenny",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/changbenny/scrollbear/issues"
+  },
+  "homepage": "https://github.com/changbenny/scrollbear#readme"
+}

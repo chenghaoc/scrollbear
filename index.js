@@ -1,14 +1,13 @@
-var Scrollbear = (function() {
+var Scrollbear = (function(window, document) {
   function start(
     target = document.body, 
-    changedItem = container.querySelectorAll('img')) {
-    var container = document.querySelector(target)
-    var scroller = container.parentNode
-    var unloadItems = Array.from(changedItem || [])
-    unloadItems.forEach(img => img.caculatedHeight = 0)
+    changedItem = target.querySelectorAll('img')) {
+    var scroller = target
+    var contents = Array.from(scroller.childNodes)
+    var unloadItems = Array.from(changedItem || []).map(img => assign(img, 'caculatedHeight', 0))
+    var oldHeight = contents.reduce((total, content) => total + (content.offsetHeight || 0), 0)
 
-    var oldHeight = container.offsetHeight
-    requestAnimationFrame(function frame(time) {
+    window.requestAnimationFrame(function frame(time) {
       var newHeight = container.offsetHeight
       // save the normal scroll position
       var scroll = getScroll(scroller)
@@ -22,8 +21,13 @@ var Scrollbear = (function() {
         returnScroll(scroller, scroll + (newHeight - oldHeight))
       }
       oldHeight = newHeight
-      requestAnimationFrame(frame)
+      window.requestAnimationFrame(frame)
     })
+  }
+  
+  function assign(target, prop, value) {
+    target[prop] = value
+    return target
   }
   function isHeightChange(oldHeight, newHeight) {
     return oldHeight !== newHeight
@@ -40,10 +44,7 @@ var Scrollbear = (function() {
       target.scrollTop = pos
   }
   function markLoadedItems(items) {
-    return items.map(item => {
-      item.caculatedHeight = item.offsetHeight
-      return item
-    })
+    return items.map(item => assign(item, 'caculatedHeight', item.offsetHeight))
   }
   function getLoadedItems(items) {
     return items.filter(item => item.offsetHeight > item.caculatedHeight)
@@ -52,5 +53,4 @@ var Scrollbear = (function() {
   return {
     start: start
   }
-})()
-export Scrollbear
+})(window, document)

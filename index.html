@@ -1,98 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
-  <meta charset="UTF-8">
-  <style type="text/css">
-  html,
-  body,
-  #scroller {
-    margin: 0;
-    height: 100%;
-  }
-  #scroller {
-  }
-  </style>
+  <title>Scrollbear -- Make your blog more smooth!</title>
 </head>
 <body>
-<div id='container'>
-  <p>
-  test 
-  </p>
-  <div class='lazy'>
-  </div>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-</div>
-</div>
-<script type="text/javascript" src='index.js'></script>
-<script type="text/javascript">
-  // scrollbear.start('#content')
-  setTimeout(function () {
-    document.querySelector('.lazy').innerHTML = 
-  '<img src="https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0NS04YTJiLTdkNmU3NjZiNjI3Mg.png">'
-  }, 1000)
-</script>
-<script type="text/javascript">
-  Scrollbear.start('#container', document.querySelectorAll('.lazy'))
-</script>
+
+<h1 id="scrollbear">Scrollbear</h1>
+
+<p>Scrollbear is a tool that maintains the container scroll position when images loaded. Scrollbear is suitable in blog platforms where exist many photos and images. When images loaded, the scroll position will <em>jump</em> and cause a unfriendly experience. Scrollbear will trace the container height and maintain the scroll position when the images loaded and container height change.</p>
+
+
+
+<h4 id="installation">Installation</h4>
+
+<p><code>npm install scrollbear</code></p>
+
+
+
+<h4 id="api">API</h4>
+
+
+
+<h5 id="scrollbearstarttarget-changeditems">Scrollbear.start(target [, changedItems])</h5>
+
+<p><code>target</code> is the DOM where scroll bar exists (Normally is the container of contents), normally the direct child node of this target will be a DOM with really long content (such as the content of blog articles).</p>
+
+<p><code>changeItems</code> is optional. It’s useful when images is lazy loading into your page. In such case, you can specify the <em>placeholder</em> of images. When images is lazy-loaded, the height of placeholder will change, and trigger the Scrollbear to justify the scroll position.</p>
+
+
+
+<h4 id="development">Development</h4>
+
+<p>I use ES6 without transpiler, so just write some clean code and enjoy it!</p>
+
+
+
+<h4 id="contribute">Contribute</h4>
+
+<p>Issues or PR are all Welcome!</p>
+
+
+
+<h4 id="license">License</h4>
+
+<p>MIT</p>
+
 </body>
 </html>

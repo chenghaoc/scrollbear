@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <style type="text/css">
+  html,
+  body,
+  #scroller {
+    margin: 0;
+    height: 100%;
+  }
+  #scroller {
+  }
+  </style>
+</head>
+<body>
+<div id='container'>
+  <p>
+  test 
+  </p>
+  <div class='lazy'>
+  </div>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+  <p>
+  test 
+  </p>
+</div>
+</div>
+<script type="text/javascript" src='../index.js'></script>
+<script type="text/javascript">
+  // scrollbear.start('#content')
+  setTimeout(function () {
+    document.querySelector('.lazy').innerHTML = 
+  '<img src="https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0NS04YTJiLTdkNmU3NjZiNjI3Mg.png">'
+  }, 1000)
+</script>
+<script type="text/javascript">
+  Scrollbear.start(document.body, document.querySelectorAll('.lazy'))
+</script>
+</body>
+</html>
