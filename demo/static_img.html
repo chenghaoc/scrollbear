@@ -4,95 +4,82 @@
   <title></title>
   <meta charset="UTF-8">
   <style type="text/css">
+  img {
+    width: 100%;
+  }
   html,
   body,
-  #scroller {
+  .scroller,
+  .side {
     margin: 0;
     height: 100%;
   }
-  #scroller {
+  .scroller {
+    overflow: scroll;
+  }
+  .side {
+    width: 50%;
+    float: left;
+  }
+  .side.-left {
+
   }
   </style>
 </head>
 <body>
-<div id='container'>
-  <p>
-  test 
-  </p>
-  <div class='lazy'>
+  <div class='side -left'>
+    <div id='bear' class='scroller'>
+      <div class='container'>
+        
+        <img src="bear1.jpg">
+        <img src="bear2.jpg">
+        <img src="bear3.jpg">
+        <img src="bear4.jpg">
+        <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet efficitur nisl sed rhoncus. Nunc eget purus iaculis lacus mollis mollis nec sed metus. Curabitur at eleifend tellus. Sed sit amet ipsum non libero gravida facilisis. Suspendisse potenti. Fusce tempor, nulla at accumsan fermentum, turpis massa vulputate urna, ut posuere ex ipsum nec dui. Suspendisse facilisis risus lorem, vitae imperdiet justo sollicitudin et. Aenean id rutrum sem, sed elementum nunc. Sed suscipit velit dolor, quis faucibus nulla vulputate sed. Donec auctor laoreet commodo. Fusce at lobortis odio.
+
+        Curabitur mattis tortor ac eleifend interdum. Nullam congue eu erat nec feugiat. Ut at libero ligula. Pellentesque sit amet elit malesuada libero mollis viverra vitae et mi. Morbi dignissim aliquet erat, id vehicula justo efficitur nec. Fusce condimentum commodo auctor. Suspendisse aliquet non magna in mattis. Maecenas sit amet accumsan libero. Nam facilisis ullamcorper neque eu dapibus. Donec condimentum commodo felis vel blandit. Nunc id nunc et urna tincidunt consectetur. Vestibulum est ex, bibendum in aliquam quis, vestibulum sit amet turpis.
+
+        Etiam vel eros nec lacus pretium sodales. Aenean semper est neque, ac placerat tellus posuere pellentesque. Morbi at justo neque. Curabitur tempus congue augue, et commodo dui aliquet sed. Pellentesque pharetra urna et nibh gravida aliquet. Proin aliquet ipsum quis purus molestie malesuada. Phasellus quis lectus sit amet nulla vehicula iaculis a id felis. Aliquam tempor enim ut tortor laoreet, sit amet tempus elit iaculis. Proin rhoncus metus quis velit dictum rutrum.
+
+        Curabitur vel lacus mollis, venenatis dui a, vestibulum nunc. Aliquam id laoreet nisi, vel aliquam eros. Phasellus metus lectus, fermentum sit amet facilisis at, porta eleifend leo. Nullam nec vehicula felis. Maecenas mattis sit amet elit quis commodo. Aenean ultricies, leo sit amet varius placerat, elit ex ullamcorper mi, eu egestas nisi enim et magna. Praesent sagittis nibh at orci consectetur blandit. Nulla euismod aliquam neque eget ornare. Curabitur et blandit nunc, aliquet lobortis ipsum. In hac habitasse platea dictumst.
+
+        Nulla sed turpis sodales, pellentesque turpis in, dictum mi. Pellentesque fringilla mattis est, nec viverra risus ullamcorper id. Nunc nisi felis, volutpat vel egestas vel, iaculis auctor magna. Vestibulum pellentesque felis arcu, at dignissim arcu lobortis vel. Aenean mattis eros eget nibh volutpat dignissim. Etiam dictum, tellus nec pulvinar congue, magna magna convallis lorem, in condimentum arcu leo eu ipsum. Phasellus sed aliquam odio. Sed auctor vestibulum purus, porttitor iaculis nisl sollicitudin at. Cras volutpat sagittis risus at commodo. Maecenas imperdiet augue non augue blandit ultricies.
+        </p>
+        <h3>With Scrollbear</h3>
+        <p>Notice the text position remain the same when images loaded.</p>
+      </div>
+    </div>
   </div>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-  <p>
-  test 
-  </p>
-</div>
-</div>
-<script type="text/javascript" src='../index.js'></script>
+  <div class='side -right'>
+    <div id='without-bear' class='scroller'>
+      <div class='container'>
+        
+        <img src="bear1.jpg">
+        <img src="bear2.jpg">
+        <img src="bear3.jpg">
+        <img src="bear4.jpg">
+        <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet efficitur nisl sed rhoncus. Nunc eget purus iaculis lacus mollis mollis nec sed metus. Curabitur at eleifend tellus. Sed sit amet ipsum non libero gravida facilisis. Suspendisse potenti. Fusce tempor, nulla at accumsan fermentum, turpis massa vulputate urna, ut posuere ex ipsum nec dui. Suspendisse facilisis risus lorem, vitae imperdiet justo sollicitudin et. Aenean id rutrum sem, sed elementum nunc. Sed suscipit velit dolor, quis faucibus nulla vulputate sed. Donec auctor laoreet commodo. Fusce at lobortis odio.
+
+        Curabitur mattis tortor ac eleifend interdum. Nullam congue eu erat nec feugiat. Ut at libero ligula. Pellentesque sit amet elit malesuada libero mollis viverra vitae et mi. Morbi dignissim aliquet erat, id vehicula justo efficitur nec. Fusce condimentum commodo auctor. Suspendisse aliquet non magna in mattis. Maecenas sit amet accumsan libero. Nam facilisis ullamcorper neque eu dapibus. Donec condimentum commodo felis vel blandit. Nunc id nunc et urna tincidunt consectetur. Vestibulum est ex, bibendum in aliquam quis, vestibulum sit amet turpis.
+
+        Etiam vel eros nec lacus pretium sodales. Aenean semper est neque, ac placerat tellus posuere pellentesque. Morbi at justo neque. Curabitur tempus congue augue, et commodo dui aliquet sed. Pellentesque pharetra urna et nibh gravida aliquet. Proin aliquet ipsum quis purus molestie malesuada. Phasellus quis lectus sit amet nulla vehicula iaculis a id felis. Aliquam tempor enim ut tortor laoreet, sit amet tempus elit iaculis. Proin rhoncus metus quis velit dictum rutrum.
+
+        Curabitur vel lacus mollis, venenatis dui a, vestibulum nunc. Aliquam id laoreet nisi, vel aliquam eros. Phasellus metus lectus, fermentum sit amet facilisis at, porta eleifend leo. Nullam nec vehicula felis. Maecenas mattis sit amet elit quis commodo. Aenean ultricies, leo sit amet varius placerat, elit ex ullamcorper mi, eu egestas nisi enim et magna. Praesent sagittis nibh at orci consectetur blandit. Nulla euismod aliquam neque eget ornare. Curabitur et blandit nunc, aliquet lobortis ipsum. In hac habitasse platea dictumst.
+
+        Nulla sed turpis sodales, pellentesque turpis in, dictum mi. Pellentesque fringilla mattis est, nec viverra risus ullamcorper id. Nunc nisi felis, volutpat vel egestas vel, iaculis auctor magna. Vestibulum pellentesque felis arcu, at dignissim arcu lobortis vel. Aenean mattis eros eget nibh volutpat dignissim. Etiam dictum, tellus nec pulvinar congue, magna magna convallis lorem, in condimentum arcu leo eu ipsum. Phasellus sed aliquam odio. Sed auctor vestibulum purus, porttitor iaculis nisl sollicitudin at. Cras volutpat sagittis risus at commodo. Maecenas imperdiet augue non augue blandit ultricies.
+        </p>
+        <h3>Without Scrollbear</h3>
+        <p>Notice the text position change and jump when images loaded.</p>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript" src='../src/index.js'></script>
 <script type="text/javascript">
-  // scrollbear.start('#content')
-  setTimeout(function () {
-    document.querySelector('.lazy').innerHTML = 
-  '<img src="https://media.licdn.com/media/AAEAAQAAAAAAAANbAAAAJDE5NjBkNDk1LTY3ZGQtNDA0NS04YTJiLTdkNmU3NjZiNjI3Mg.png">'
-  }, 1000)
-</script>
-<script type="text/javascript">
-  Scrollbear.start(document.body, document.querySelectorAll('.lazy'))
+  document.querySelector('#bear').scrollTop = 1000
+  document.querySelector('#without-bear').scrollTop = 1000
+  Scrollbear.start(document.querySelector('#bear'))
 </script>
 </body>
 </html>

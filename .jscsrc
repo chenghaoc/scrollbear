@@ -1,0 +1,6 @@
+{
+  preset: 'google',
+  esnext: true,
+  "requireSemicolons": false,
+  "disallowSemicolons": true
+}
