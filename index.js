@@ -4,30 +4,30 @@ var Scrollbear = (function(window, document) {
     changedItem = target.querySelectorAll('img')) {
     var scroller = target
     var contents = Array.from(scroller.childNodes)
-    var unloadItems = Array.from(changedItem || []).map(img => assign(img, 'caculatedHeight', 0))
+    var unloadItems = Array.from(changedItem || []).map(img => { return { dom: img, caculatedHeight: 0 } })
     var oldHeight = contents.reduce((total, content) => total + (content.offsetHeight || 0), 0)
 
-    window.requestAnimationFrame(frame)
-  }
-
-  function frame() {
-    var newHeight = container.offsetHeight
-    // save the normal scroll position
-    var scroll = getScroll(scroller)
-    // container height change, means there's a image loaded
-    if (isHeightChange(oldHeight, newHeight) &&
-      // get loaded image, then determine if it's above the viewport 
-      getLoadedItems(unloadItems)[0].offsetTop < getScroll(scroller)) {
-      // mark that part of item height is already be calculated
-      unloadItems = markLoadedItems(unloadItems)
-      // return to normal scroll position, avoid the page jump
-      // there's only part we set the value of style, avoid sync layout threashing
-      returnScroll(scroller, scroll + (newHeight - oldHeight))
+    // use closure to share the scope
+    var frame = function() {
+      var newHeight = container.offsetHeight
+      // save the normal scroll position
+      var scroll = getScroll(scroller)
+      // container height change, means there's a image loaded
+      if (isHeightChange(oldHeight, newHeight) &&
+        // get loaded image, then determine if it's above the viewport 
+        getLoadedItems(unloadItems)[0].dom.offsetTop < getScroll(scroller)) {
+        // mark that part of item height is already be calculated
+        unloadItems = markLoadedItems(unloadItems)
+        // return to normal scroll position, avoid the page jump
+        // there's only part we set the value of style, avoid sync layout threashing
+        returnScroll(scroller, scroll + (newHeight - oldHeight))
+      }
+      oldHeight = newHeight
+      window.requestAnimationFrame(frame)
     }
-    oldHeight = newHeight
-    window.requestAnimationFrame(frame)
+
+    return window.requestAnimationFrame(frame)
   }
-  
   function assign(target, prop, value) {
     target[prop] = value
     return target
@@ -47,10 +47,10 @@ var Scrollbear = (function(window, document) {
       target.scrollTop = pos
   }
   function markLoadedItems(items) {
-    return items.map(item => assign(item, 'caculatedHeight', item.offsetHeight))
+    return items.map(item => assign(item, 'caculatedHeight', item.dom.offsetHeight))
   }
   function getLoadedItems(items) {
-    return items.filter(item => item.offsetHeight > item.caculatedHeight)
+    return items.filter(item => item.dom.offsetHeight > item.caculatedHeight)
   }
   // Public APIs
   return {
