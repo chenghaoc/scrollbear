@@ -7,22 +7,25 @@ var Scrollbear = (function(window, document) {
     var unloadItems = Array.from(changedItem || []).map(img => assign(img, 'caculatedHeight', 0))
     var oldHeight = contents.reduce((total, content) => total + (content.offsetHeight || 0), 0)
 
-    window.requestAnimationFrame(function frame(time) {
-      var newHeight = container.offsetHeight
-      // save the normal scroll position
-      var scroll = getScroll(scroller)
-      // container height change, means there's a image loaded
-      if (isHeightChange(oldHeight, newHeight) &&
-        // get loaded image, then determine if it's above the viewport 
-        getLoadedItems(unloadItems)[0].offsetTop < getScroll(scroller)) {
-        // mark that part of item height is already be calculated
-        unloadItems = markLoadedItems(unloadItems)
-        // return to normal scroll position, avoid the page jump
-        returnScroll(scroller, scroll + (newHeight - oldHeight))
-      }
-      oldHeight = newHeight
-      window.requestAnimationFrame(frame)
-    })
+    window.requestAnimationFrame(frame)
+  }
+
+  function frame() {
+    var newHeight = container.offsetHeight
+    // save the normal scroll position
+    var scroll = getScroll(scroller)
+    // container height change, means there's a image loaded
+    if (isHeightChange(oldHeight, newHeight) &&
+      // get loaded image, then determine if it's above the viewport 
+      getLoadedItems(unloadItems)[0].offsetTop < getScroll(scroller)) {
+      // mark that part of item height is already be calculated
+      unloadItems = markLoadedItems(unloadItems)
+      // return to normal scroll position, avoid the page jump
+      // there's only part we set the value of style, avoid sync layout threashing
+      returnScroll(scroller, scroll + (newHeight - oldHeight))
+    }
+    oldHeight = newHeight
+    window.requestAnimationFrame(frame)
   }
   
   function assign(target, prop, value) {

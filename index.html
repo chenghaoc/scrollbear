@@ -3,21 +3,108 @@
 <head>
   <title>Scrollbear -- Make your blog more smooth!</title>
 </head>
-<body>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+<style>
+    body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  *::selection {
+    background-color: #000;
+    color: #fff;
+  }
+  p {
+    font-size: .9em;
+  }
+  code {
+    font-family: 'Inconsolata';
+  }
+  #export {
+    position: relative;
+    z-index: 5;
+  }
+  .cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #777;
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+  #test {
+    width: 100px;
+    height: 100px;
+  }
+  #demo1,
+  #demo2 {
+    /*color: #e74c3c;*/
+    color: #16a085;
+    cursor: pointer;
+  }
+  .alert {
+    display: none;
+    position: fixed;
+    top: 300px;
+  }
+  .reverse {
+    background: #000;
+    color: #fff;
+  }
 
+  .section {
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+  }
+  .center {
+    text-align: center;
+  }
+  .right {
+    text-align: right;
+  }
+  .shadow {
+    box-shadow: 3px 3px 6px -2px #333;
+  }
+  .content {
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+  }
+  .p-10 {
+    padding: 10px;
+  }
+  .p-5 {
+    padding: 5px;
+  }
+  .spy-cursor:after {
+    content: 'Cursor';
+    position: absolute;
+    left: 23px;
+    background: #000;
+    color: #fff;
+    padding: 3px 4px;
+  }
+  .spy-cursor {
+    transition: transform .1s;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+</style>
+<body>
+<main class='section'>
 <h1 id="scrollbear">Scrollbear</h1>
 
 <p>Scrollbear is a tool that maintains the container scroll position when images loaded. Scrollbear is suitable in blog platforms where exist many photos and images. When images loaded, the scroll position will <em>jump</em> and cause a unfriendly experience. Scrollbear will trace the container height and maintain the scroll position when the images loaded and container height change.</p>
 
 
 
-<h4 id="installation">Installation</h4>
+<h2 id="installation">Installation</h2>
 
-<p><code>npm install scrollbear</code></p>
+<p><code>npm install --save scrollbear</code></p>
 
 
 
-<h4 id="api">API</h4>
+<h2 id="api">API</h2>
 
 
 
@@ -25,25 +112,25 @@
 
 <p><code>target</code> is the DOM where scroll bar exists (Normally is the container of contents), normally the direct child node of this target will be a DOM with really long content (such as the content of blog articles).</p>
 
-<p><code>changeItems</code> is optional. It’s useful when images is lazy loading into your page. In such case, you can specify the <em>placeholder</em> of images. When images is lazy-loaded, the height of placeholder will change, and trigger the Scrollbear to justify the scroll position.</p>
+<p><code>changeItems</code> is optional. It is useful when images is lazy loading into your page. In such case, you can specify the <em>placeholder</em> of images. When images is lazy-loaded, the height of placeholder will change, and trigger the Scrollbear to justify the scroll position.</p>
 
 
 
-<h4 id="development">Development</h4>
+<h2 id="development">Development</h2>
 
 <p>I use ES6 without transpiler, so just write some clean code and enjoy it!</p>
 
 
 
-<h4 id="contribute">Contribute</h4>
+<h2 id="contribute">Contribute</h2>
 
 <p>Issues or PR are all Welcome!</p>
 
 
 
-<h4 id="license">License</h4>
+<h2 id="license">License</h2>
 
 <p>MIT</p>
-
+</main>
 </body>
 </html>
