@@ -1,6 +1,8 @@
 # Scrollbear
 Scrollbear is a tool that maintains the container scroll position when images loaded. Scrollbear is suitable in blog platforms where exist many photos and images. When images loaded, the scroll position will *jump* and cause a unfriendly experience. Scrollbear will trace the container height and maintain the scroll position when the images loaded and container height change.
 
+## [Demo](http://changbenny.github.io/scrollbear/demo/static_img.html)
+
 ## Installation
 
 `npm install scrollbear`
@@ -15,7 +17,10 @@ Scrollbear is a tool that maintains the container scroll position when images lo
 
 ## Development
 
-I use ES6 without transpiler, so just write some clean code and enjoy it!
+```sh
+npm install
+gulp
+```
 
 ## Contribute
 

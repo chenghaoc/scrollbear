@@ -6,18 +6,36 @@
 <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
 <style>
-    body {
+  body {
     font-family: 'Open Sans', sans-serif;
+    background: #FFFDFB;
+    color: #455645;
   }
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: #1c2d42;
+  }
+  
   *::selection {
     background-color: #000;
     color: #fff;
+  }
+  a {
+    color: #455645;
+  }
+  a:visited {
+    color: #626B6D;
   }
   p {
     font-size: .9em;
   }
   code {
     font-family: 'Inconsolata';
+    color: #46596f;
+    background: #D4CFCB;
+    padding: 3px 4px;
   }
   .section {
     position: relative;
@@ -27,15 +45,22 @@
 </style>
 <body>
 <main class='section'>
+<div style='float: right;'>
+<a class="github-button" href="https://github.com/changbenny/scrollbear" data-icon="octicon-star" data-style="mega" data-count-href="/changbenny/scrollbear/stargazers" data-count-api="/repos/changbenny/scrollbear#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star changbenny/scrollbear on GitHub">Star</a>
+</div>
 <h1 id="scrollbear">Scrollbear</h1>
 
 <p>Scrollbear is a tool that maintains the container scroll position when images loaded. Scrollbear is suitable in blog platforms where exist many photos and images. When images loaded, the scroll position will <em>jump</em> and cause a unfriendly experience. Scrollbear will trace the container height and maintain the scroll position when the images loaded and container height change.</p>
 
 
 
+<h2 id="demo"><a href="http://changbenny.github.io/scrollbear/demo/static_img.html">Demo</a></h2>
+
+
+
 <h2 id="installation">Installation</h2>
 
-<p><code>npm install --save scrollbear</code></p>
+<p><code>npm install scrollbear</code></p>
 
 
 
@@ -49,23 +74,14 @@
 
 <p><code>changeItems</code> is optional. It is useful when images is lazy loading into your page. In such case, you can specify the <em>placeholder</em> of images. When images is lazy-loaded, the height of placeholder will change, and trigger the Scrollbear to justify the scroll position.</p>
 
-
-
-<h2 id="development">Development</h2>
-
-<p>I use ES6 without transpiler, so just write some clean code and enjoy it!</p>
-
-
-
-<h2 id="contribute">Contribute</h2>
-
-<p>Issues or PR are all Welcome!</p>
-
-
-
 <h2 id="license">License</h2>
 
 <p>MIT</p>
+
+
 </main>
+
+
+<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
