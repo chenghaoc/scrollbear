@@ -1,6 +1,6 @@
 {
   "name": "scrollbear",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Scrollbear is a tool that maintains the container scroll position when images loaded",
   "devDependencies": {
     "ava": "^0.12.0",
