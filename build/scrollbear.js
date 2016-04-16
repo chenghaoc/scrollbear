@@ -1,4 +1,5 @@
 var Scrollbear = (function(window, document) {
+  var run
   function start(
     target = document.body,
     changedItem = target.querySelectorAll('img')) {
@@ -6,8 +7,12 @@ var Scrollbear = (function(window, document) {
     var unloadItems = Array.from(changedItem || []).map(img => { return {dom: img, caculatedHeight: 0} })
     var oldHeight = Array.from(scroller.childNodes).reduce(accumulateHeight, 0)
 
+    run = true
     // use closure to share the scope
     var frame = function() {
+      if (!run) return
+      window.requestAnimationFrame(frame)
+
       var newHeight = Array.from(scroller.childNodes).reduce(accumulateHeight, 0)
       // save the normal scroll position
       var scroll = getScroll(scroller)
@@ -25,9 +30,11 @@ var Scrollbear = (function(window, document) {
         }
       }
       oldHeight = newHeight
-      window.requestAnimationFrame(frame)
     }
     return window.requestAnimationFrame(frame)
+  }
+  function stop() {
+    run = false
   }
   function assign(target, prop, value) {
     target[prop] = value
@@ -58,7 +65,8 @@ var Scrollbear = (function(window, document) {
   }
   // Public APIs
   return {
-    start: start
+    start,
+    stop
   }
 })(window, document)
 
