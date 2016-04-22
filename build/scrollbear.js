@@ -8,7 +8,7 @@ var Scrollbear = function (window, document) {
 
     var scroller = target;
     var unloadItems = Array.from(changedItem || []).map(function (img) {
-      return { dom: img, caculatedHeight: 0 };
+      return { dom: img, calculatedHeight: 0 };
     });
     var oldHeight = Array.from(scroller.childNodes).reduce(accumulateHeight, 0);
 
@@ -60,11 +60,11 @@ var Scrollbear = function (window, document) {
     if (typeof target.scrollTop === 'undefined' || target === document.body) window.scrollTo(0, pos);else target.scrollTop = pos;
   }
   function markLoadedItems(item) {
-    return assign(item, 'caculatedHeight', item.dom.offsetHeight);
+    return assign(item, 'calculatedHeight', item.dom.offsetHeight);
   }
   function getLoadedItems(items) {
     return items.filter(function (item) {
-      return item.dom.offsetHeight > item.caculatedHeight;
+      return item.dom.offsetHeight > item.calculatedHeight;
     });
   }
   // Public APIs
