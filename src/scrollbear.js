@@ -4,7 +4,7 @@ var Scrollbear = (function(window, document) {
     target = document.body,
     changedItem = target.querySelectorAll('img')) {
     var scroller = target
-    var unloadItems = Array.from(changedItem || []).map(img => { return {dom: img, caculatedHeight: 0} })
+    var unloadItems = Array.from(changedItem || []).map(img => { return {dom: img, calculatedHeight: 0} })
     var oldHeight = Array.from(scroller.childNodes).reduce(accumulateHeight, 0)
 
     run = true
@@ -58,10 +58,10 @@ var Scrollbear = (function(window, document) {
       target.scrollTop = pos
   }
   function markLoadedItems(item) {
-    return assign(item, 'caculatedHeight', item.dom.offsetHeight)
+    return assign(item, 'calculatedHeight', item.dom.offsetHeight)
   }
   function getLoadedItems(items) {
-    return items.filter(item => item.dom.offsetHeight > item.caculatedHeight)
+    return items.filter(item => item.dom.offsetHeight > item.calculatedHeight)
   }
   // Public APIs
   return {
