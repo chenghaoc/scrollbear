@@ -34,3 +34,5 @@ node_modules
 
 # Test related files
 .nyc_output/
+# Coveralls
+.coveralls.yml
