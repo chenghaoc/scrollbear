@@ -32,7 +32,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "nyc ava test/*.js"
+    "test": "nyc ava --serial test/*.js"
   },
   "ava": {
     "require": [

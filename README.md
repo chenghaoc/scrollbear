@@ -37,9 +37,22 @@ Scrollbear.start(document.getElementById('scroll'))
 
 ## Development
 
+Install development dependency
+
 ```sh
 npm install
+```
+
+Build
+
+```sh
 gulp
+```
+
+Test
+
+```
+npm test
 ```
 
 ## Contribute
