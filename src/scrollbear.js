@@ -5,8 +5,8 @@ var Scrollbear = (function(window, document) {
   function start(
     target = document.body,
     changedItem = target.querySelectorAll('img')) {
-    var unloadItems = Array.from(changedItem || []).map(img => { return {dom: img, calculatedHeight: 0} })
-    var oldHeight = Array.from(target.childNodes).reduce(accumulateHeight, 0)
+    var unloadItems = ([...changedItem] || []).map(img => { return {dom: img, calculatedHeight: 0} })
+    var oldHeight = [...target.childNodes].reduce(accumulateHeight, 0)
 
     run = true
     // use closure to share the scope
@@ -14,7 +14,7 @@ var Scrollbear = (function(window, document) {
       if (!run) return
       window.requestAnimationFrame(frame)
 
-      var newHeight = Array.from(target.childNodes).reduce(accumulateHeight, 0)
+      var newHeight = [...target.childNodes].reduce(accumulateHeight, 0)
       // save the normal scroll position
       var scroll = getScroll(target)
       // container height change, means there's a image loaded

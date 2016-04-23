@@ -1,5 +1,7 @@
 'use strict';
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 (function () {
   var lastTime = 0;
   var vendors = ['ms', 'moz', 'webkit', 'o'];
@@ -17,10 +19,6 @@
     lastTime = currTime + timeToCall;
     return id;
   };
-
-  if (!window.cancelAnimationFrame) window.cancelAnimationFrame = function (id) {
-    clearTimeout(id);
-  };
 })();
 
 var Scrollbear = function (window, document) {
@@ -29,10 +27,10 @@ var Scrollbear = function (window, document) {
     var target = arguments.length <= 0 || arguments[0] === undefined ? document.body : arguments[0];
     var changedItem = arguments.length <= 1 || arguments[1] === undefined ? target.querySelectorAll('img') : arguments[1];
 
-    var unloadItems = Array.from(changedItem || []).map(function (img) {
+    var unloadItems = ([].concat(_toConsumableArray(changedItem)) || []).map(function (img) {
       return { dom: img, calculatedHeight: 0 };
     });
-    var oldHeight = Array.from(target.childNodes).reduce(accumulateHeight, 0);
+    var oldHeight = [].concat(_toConsumableArray(target.childNodes)).reduce(accumulateHeight, 0);
 
     run = true;
     // use closure to share the scope
@@ -40,7 +38,7 @@ var Scrollbear = function (window, document) {
       if (!run) return;
       window.requestAnimationFrame(frame);
 
-      var newHeight = Array.from(target.childNodes).reduce(accumulateHeight, 0);
+      var newHeight = [].concat(_toConsumableArray(target.childNodes)).reduce(accumulateHeight, 0);
       // save the normal scroll position
       var scroll = getScroll(target);
       // container height change, means there's a image loaded
