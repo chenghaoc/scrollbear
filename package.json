@@ -32,7 +32,12 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc ava test/*.js"
+  },
+  "ava": {
+    "require": [
+      "./test/helpers/browser-env.js"
+    ]
   },
   "repository": {
     "type": "git",
