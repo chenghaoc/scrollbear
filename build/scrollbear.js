@@ -44,7 +44,6 @@ var Scrollbear = function (window, document) {
       // save the normal scroll position
       var scroll = getScroll(target);
       // container height change, means there's a image loaded
-      console.log(scroll);
       if (isHeightChange(oldHeight, newHeight)) {
         // get loaded image, then determine if it's above the viewport
         if (getLoadedItems(unloadItems).filter(function (item) {
