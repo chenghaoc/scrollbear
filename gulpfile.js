@@ -28,11 +28,7 @@ function compile() {
             }
         }))
         .pipe(rollup({
-            sourceMap: true,
-            plugins: [ 
-                nodeResolve({ jsnext: true, main: true, browser: true }),
-                commonjs()
-            ]
+            sourceMap: true
         }))
         .pipe(babel())
         .on('error', util.log)

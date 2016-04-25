@@ -1,5 +1,7 @@
 'use strict';
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 (function () {
@@ -75,7 +77,6 @@ var Scrollbear = function (window, document) {
     return target.scrollTop || window.scrollY;
   }
   function returnScroll(target, pos) {
-    console.log(window.scrollY);
     // document's scrollTop is undefined, and body will not scroll
     // in these cases, we will scroll the whole window
     if (typeof target.scrollTop === 'undefined' || target === document.body) window.scrollTo(0, pos);else target.scrollTop = pos;
@@ -95,5 +96,7 @@ var Scrollbear = function (window, document) {
   };
 }(window, document);
 
-window.Scrollbear = Scrollbear;
+if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') module.exports = Scrollbear;else if (typeof define === 'function' && typeof define.amd !== 'undefined') define(function () {
+  return Scrollbear;
+});else window.Scrollbear = Scrollbear;
 //# sourceMappingURL=scrollbear.js.map

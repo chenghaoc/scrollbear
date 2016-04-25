@@ -51,7 +51,6 @@ var Scrollbear = (function(window, document) {
     return target.scrollTop || window.scrollY
   }
   function returnScroll(target, pos) {
-    console.log(window.scrollY);
     // document's scrollTop is undefined, and body will not scroll
     // in these cases, we will scroll the whole window
     if (typeof target.scrollTop === 'undefined' || target === document.body)
