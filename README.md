@@ -35,13 +35,17 @@ Scrollbear.start(document.getElementById('scroll'))
 
 ## API
 
-#### Scrollbear.start(target [, changedItems])
+#### Scrollbear.start(target, [changedItems])
 
 `target` is the DOM where scroll bar exists (Normally is the container of contents), normally the direct child node of this target will be a DOM with really long content (such as the content of blog articles).
 
 `changeItems` is optional. It is useful when images is lazy loading into your page. In such case, you can specify the *placeholder* of images. When images is lazy-loaded, the height of placeholder will change, and trigger the Scrollbear to justify the scroll position.
 
 #### Scrollbear.stop()
+
+#### Scrollbear.onChange(callback)
+
+`callback` function will be called when Scrollbear detects container height changes and adjust the scroll position. The first param of `callback` will be the target which height changed. 
 
 
 ## Development
