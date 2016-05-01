@@ -3,7 +3,7 @@ import 'babel-register'
 import Scrollbear from '../src/scrollbear.js'
 
 // For test, we ensure the rAF is passed one frame
-const oneFrame = 30
+const oneFrame = 50
 
 test.beforeEach(t => {
   var div = t.context.div = document.createElement('div')
@@ -98,6 +98,34 @@ test.cb('#start: document.body', t => {
   t.is(window.scrollY, 100)
   setTimeout(() => {
     t.is(window.scrollY, 400)
+    t.end()
+  }, oneFrame)
+})
+
+
+
+test.cb('#onChange', t => {
+  t.plan(6)
+  var changed = false
+  var div = document.createElement('div')
+  var img  = document.createElement('img')
+  img.offsetHeight = 0
+  div.appendChild(img)
+  img.offsetTop = 0
+  div.scrollTop = 100
+
+  t.is(img.offsetHeight, 0)
+  Scrollbear.onChange(target => {
+    changed = true
+    t.is(target, div)
+  })
+  Scrollbear.start(div)
+  img.offsetHeight = 300
+  t.is(img.offsetHeight, 300)
+  setTimeout(() => {
+    t.is(img.offsetHeight, 300)
+    t.is(div.scrollTop, 400)
+    t.is(changed, true)
     t.end()
   }, oneFrame)
 })

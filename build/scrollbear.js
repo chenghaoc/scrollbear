@@ -25,6 +25,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 var Scrollbear = function (window, document) {
   var run;
+  var onChangeHandler = null;
   function start() {
     var target = arguments.length <= 0 || arguments[0] === undefined ? document.body : arguments[0];
     var changedItem = arguments.length <= 1 || arguments[1] === undefined ? target.querySelectorAll('img') : arguments[1];
@@ -53,6 +54,7 @@ var Scrollbear = function (window, document) {
           // unloadItems = markLoadedItems(unloadItems)
           // return to normal scroll position, avoid the page jump
           // there's only part we set the value of style, avoid sync layout threashing
+          onChangeHandler && typeof onChangeHandler === 'function' && onChangeHandler(target);
           returnScroll(target, scroll + (newHeight - oldHeight));
         }
       }
@@ -92,7 +94,10 @@ var Scrollbear = function (window, document) {
   // Public APIs
   return {
     start: start,
-    stop: stop
+    stop: stop,
+    onChange: function onChange(handler) {
+      onChangeHandler = handler;
+    }
   };
 }(window, document);
 

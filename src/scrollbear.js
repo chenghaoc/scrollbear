@@ -2,6 +2,7 @@ import {} from './rAF.js'
 
 var Scrollbear = (function(window, document) {
   var run
+  var onChangeHandler = null
   function start(
     target = document.body,
     changedItem = target.querySelectorAll('img')) {
@@ -27,6 +28,7 @@ var Scrollbear = (function(window, document) {
           // unloadItems = markLoadedItems(unloadItems)
           // return to normal scroll position, avoid the page jump
           // there's only part we set the value of style, avoid sync layout threashing
+          onChangeHandler && typeof(onChangeHandler) === 'function' && onChangeHandler(target)
           returnScroll(target, scroll + (newHeight - oldHeight))
         }
       }
@@ -67,7 +69,10 @@ var Scrollbear = (function(window, document) {
   // Public APIs
   return {
     start,
-    stop
+    stop,
+    onChange(handler) {
+      onChangeHandler = handler
+    }
   }
 })(window, document)
 export default Scrollbear
