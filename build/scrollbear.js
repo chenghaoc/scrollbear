@@ -99,4 +99,3 @@ var Scrollbear = function (window, document) {
 if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') module.exports = Scrollbear;else if (typeof define === 'function' && typeof define.amd !== 'undefined') define(function () {
   return Scrollbear;
 });else window.Scrollbear = Scrollbear;
-//# sourceMappingURL=scrollbear.js.map
