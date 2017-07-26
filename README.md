@@ -1,8 +1,5 @@
 # [Scrollbear](http://changbenny.github.io/scrollbear/)
 
-<a href='https://travis-ci.org/changbenny/scrollbear'>
-  <img src='https://img.shields.io/travis/changbenny/scrollbear.svg'>
-</a>
 <a href='https://coveralls.io/github/changbenny/scrollbear?branch=master'>
   <img src='https://img.shields.io/coveralls/changbenny/scrollbear.svg'>
 </a>
@@ -10,6 +7,8 @@
 <img src='https://img.shields.io/npm/l/scrollbear.svg?maxAge=2592000'>
 
 [Scrollbear](http://changbenny.github.io/scrollbear/) is a tool that maintains the container scroll position when images loaded. Scrollbear is suitable in blog platforms where exist many photos and images. When images loaded, the scroll position will *jump* and cause a unfriendly experience. Scrollbear will trace the container height and maintain the scroll position when the images loaded and container height change.
+
+** Since Google Chrome launch scolling anchor feature, there's no difference with or without Scrollbear in Chrome browser.
 
 ## [Demo](http://changbenny.github.io/scrollbear/demo/static_img.html)
 
